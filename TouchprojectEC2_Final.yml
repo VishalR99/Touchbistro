@@ -1,0 +1,724 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Metadata:
+    Generator: "Vishal Raval"
+Description: ""
+Resources:
+    ec291f5738:
+        Type: "AWS::EC2::VPC"
+        Properties:
+            CidrBlock: "10.0.0.0/16"
+            InstanceTenancy: "default"
+
+    ec2d278df4:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            VpcId: "vpc-0734327f6710988e4"
+            CidrBlock: "10.0.0.1/32"
+            AvailabilityZone: "us-east-2a"
+
+    ec25dcd0dd:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            VpcId: "vpc-0734327f6710988e4"
+            CidrBlock: "10.0.32.0/24"
+            AvailabilityZone: "us-east-2a"
+
+    ec2e546594:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            VpcId: "vpc-0734327f6710988e4"
+            CidrBlock: "10.0.64.0/24"
+
+    ec2fa612be:
+                Type: "AWS::EC2::InternetGateway"
+
+    ec2cabad3b:
+        Type: "AWS::EC2::SubnetRouteTableAssociation"
+        Properties:
+            SubnetId: "subnet-033c5d210cc432f69"
+            RouteTableId: "rtb-0cb991b2b5f6b1842"
+
+    ec227d8d40:
+        Type: "AWS::EC2::RouteTable"
+        Properties:
+            VpcId: "vpc-0734327f6710988e4"
+
+    ec2a546203:
+        Type: "AWS::EC2::VPCGatewayAttachment"
+        Properties:
+            VpcId: "vpc-0734327f6710988e4"
+            InternetGatewayId: "igw-0ec6683fb5170202d"
+
+    ec29bab734:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-1 created 2019-12-27T22:50:55.305-05:00"
+            GroupName: "launch-wizard-1"
+            VpcId: "vpc-0734327f6710988e4"
+
+    ec24bb948d:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0dacb0c129b49f529"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-033c5d210cc432f69"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-02954acbd16f8cc4c"
+
+    ec296a83c9:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-1 created 2019-12-29T11:30:25.265-05:00"
+            GroupName: "launch-wizard-1"
+            VpcId: "vpc-08da26fc386864f16"
+
+    ec27701482:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0dacb0c129b49f529"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-03ba6602ad8da63eb"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-0f56edcae63933967"
+
+    ec2cc8f2e5:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-2 created 2019-12-29T11:54:18.384-05:00"
+            GroupName: "launch-wizard-2"
+            VpcId: "vpc-08da26fc386864f16"
+
+    ec2f6ad645:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-03ba6602ad8da63eb"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-085b73d7751174917"
+
+    ec2f096df0:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-4 created 2019-12-29T12:06:34.142-05:00"
+            GroupName: "launch-wizard-4"
+            VpcId: "vpc-08da26fc386864f16"
+
+    ec2aec3e4a:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-03ba6602ad8da63eb"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-02af4d0240b67c836"
+
+    ec2f69a675:
+        Type: "AWS::EC2::VPC"
+        Properties:
+            CidrBlock: "10.0.4.0/24"
+            InstanceTenancy: "default"
+
+    ec2a2c3747:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            VpcId: "vpc-077515528e036a462"
+            CidrBlock: "10.0.4.0/24"
+
+    ec2ed148e0:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-1 created 2019-12-29T18:25:11.653-05:00"
+            GroupName: "launch-wizard-1"
+            VpcId: "vpc-0731e7397c5ab0763"
+
+    ec27da14b7:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "MyProjectEC2"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-0d6cf6e81783ef514"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-054efc693fa56b683"
+
+    ec2f84b89b:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-2 created 2019-12-29T18:52:08.749-05:00"
+            GroupName: "launch-wizard-2"
+            VpcId: "vpc-0731e7397c5ab0763"
+
+    ec26ce7027:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-0d6cf6e81783ef514"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-06e5ed1298a8d82ef"
+
+    ec22e6d07d:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-3 created 2019-12-29T19:03:59.017-05:00"
+            GroupName: "launch-wizard-3"
+            VpcId: "vpc-0731e7397c5ab0763"
+
+    ec2a0a30f6:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-0d6cf6e81783ef514"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-0cc8995865e92b79d"
+
+    ec22642c40:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-4 created 2019-12-29T19:17:03.637-05:00"
+            GroupName: "launch-wizard-4"
+            VpcId: "vpc-0731e7397c5ab0763"
+
+    ec203abb22:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "TouchEC2"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-0d6cf6e81783ef514"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-033bd2750f8e6dd3a"
+
+    ec2ba0d81f:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            VpcId: "vpc-04b081de346387aef"
+            CidrBlock: "10.0.1.0/24"
+
+    ec2a3f559a:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            VpcId: "vpc-04b081de346387aef"
+            CidrBlock: "10.0.4.0/24"
+
+    ec2318d38a:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-1 created 2019-12-29T22:37:41.833-05:00"
+            GroupName: "launch-wizard-1"
+            VpcId: "vpc-04b081de346387aef"
+
+    ec28eef9b6:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "MyProjectEC2"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-0b6d1492f5e5b0554"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-045d05ea871620fba"
+
+    ec2333c04a:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-1 created 2019-12-31T15:24:12.510-05:00"
+            GroupName: "launch-wizard-1"
+            VpcId: "vpc-058ba19e9eed95f3c"
+
+    ec22739331:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "MyTouchProjectEC2"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-0d0fce34c612d19e5"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-043913237ec40eb34"
+
+    ec20d56a0b:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-1 created 2019-12-31T18:00:44.136-05:00"
+            GroupName: "launch-wizard-1"
+            VpcId: "vpc-0e82ddb0a145ba490"
+
+    ec29f2998d:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "MyTouchProject"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-02343e577b09cfef5"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-0607929f2325404e9"
+
+    ec2a13a069:
+        Type: "AWS::EC2::VPC"
+        Properties:
+            CidrBlock: "10.0.0.0/24"
+            InstanceTenancy: "default"
+
+    ec27e41e95:
+        Type: "AWS::EC2::Subnet"
+        Properties:
+            VpcId: "vpc-0c27691e445aef682"
+            CidrBlock: "10.0.0.0/24"
+
+    ec29e7dc95:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-1 created 2019-12-31T18:04:42.119-05:00"
+            GroupName: "launch-wizard-1"
+            VpcId: "vpc-0c27691e445aef682"
+
+    ec2700bae0:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "MyTouchProject"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-056ccec74d156dd48"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-089ff6c10d67cfdb3"
+
+    ec226ec59f:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-2 created 2019-12-31T18:17:58.374-05:00"
+            GroupName: "launch-wizard-2"
+            VpcId: "vpc-0c27691e445aef682"
+
+    ec2432d533:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0dacb0c129b49f529"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "MyTouchProject"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                DeleteOnTermination: true
+                SubnetId: "subnet-056ccec74d156dd48"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-02cb1f877837f3fc0"
+
+    ec2b176888:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-1 created 2019-12-31T18:39:09.037-05:00"
+            GroupName: "launch-wizard-1"
+            VpcId: "vpc-0accceb674a714744"
+
+    ec24f8c798:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0dacb0c129b49f529"
+            KeyName: "TouchProject1"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "MyTouchProject"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                AssociatePublicIpAddress: true
+                DeleteOnTermination: true
+                SubnetId: "subnet-034349f79db3269f8"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-0b16187bc8996405d"
+
+    ec2cc75aaf:
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "launch-wizard-2 created 2019-12-31T19:28:28.085-05:00"
+            GroupName: "launch-wizard-2"
+            VpcId: "vpc-0accceb674a714744"
+
+    ec2d7e62bf:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-0d5d9d301c853a04a"
+            KeyName: "touchproject"
+            InstanceType: "t2.micro"
+            Tenancy: "default"
+            Monitoring: false
+            DisableApiTermination: false
+            InstanceInitiatedShutdownBehavior: "stop"
+            CreditSpecification: 
+                CPUCredits: "standard"
+            EbsOptimized: false
+            Tags: 
+              - 
+                Key: "Name"
+                Value: "MyTouchProject"
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/sda1"
+                Ebs: 
+                    VolumeSize: 8
+                    DeleteOnTermination: true
+                    VolumeType: "gp2"
+              - 
+                DeviceName: "/dev/sdb"
+              - 
+                DeviceName: "/dev/sdc"
+            NetworkInterfaces: 
+              - 
+                DeviceIndex: 0
+                Description: "Primary network interface"
+                AssociatePublicIpAddress: true
+                DeleteOnTermination: true
+                SubnetId: "subnet-034349f79db3269f8"
+                Ipv6AddressCount: 0
+                GroupSet: 
+                  - "sg-0e5c78190399d591d"
+
